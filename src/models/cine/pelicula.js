@@ -6,12 +6,8 @@ const peliculaSchema = Mongoose.Schema({
         clasificacion: {type: String},
         genero: {type: String},
         imagen: {type: String,},
-        estatus:{type: String, unique: true},
+        status:{type: String,},
         fechaEstreno:{type: Date},
-        detalle_id:[{
-            ref: "Detalle", 
-            type: Mongoose.Schema.Types.ObjectId
-        }]
     },
     {
         versionKey: false

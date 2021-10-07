@@ -63,14 +63,14 @@ export const createSala = async () => {
 
     // Creando salas por defecto
     const values = await Promise.all([
-      new Categoria({ sala: "Sala 01" }).save(),
-      new Categoria({ sala: "Sala 02" }).save(),
-      new Categoria({ sala: "Sala 03" }).save(),
-      new Categoria({ sala: "Sala 04" }).save(),
-      new Categoria({ sala: "Sala 05" }).save(),
-      new Categoria({ sala: "Sala 06" }).save(),
-      new Categoria({ sala: "Sala 07" }).save(),
-      new Categoria({ sala: "Sala 08" }).save(),
+      new Sala({ sala: "Sala 01" }).save(),
+      new Sala({ sala: "Sala 02" }).save(),
+      new Sala({ sala: "Sala 03" }).save(),
+      new Sala({ sala: "Sala 04" }).save(),
+      new Sala({ sala: "Sala 05" }).save(),
+      new Sala({ sala: "Sala 06" }).save(),
+      new Sala({ sala: "Sala 07" }).save(),
+      new Sala({ sala: "Sala 08" }).save(),
     ]);
 
     console.log(values);
@@ -118,17 +118,17 @@ export const createHorario = async () => {
 
     // Creando salas por defecto
     const values = await Promise.all([
-      new Categoria({ hora: "10:00 AM" }).save(),
-      new Categoria({ hora: "11:00 AM" }).save(),
-      new Categoria({ hora: "12:00 AM" }).save(),
-      new Categoria({ hora: "1:00 PM" }).save(),
-      new Categoria({ hora: "2:00 PM" }).save(),
-      new Categoria({ hora: "3:00 PM" }).save(),
-      new Categoria({ hora: "4:00 PM" }).save(),
-      new Categoria({ hora: "5:00 PM" }).save(),
-      new Categoria({ hora: "6:00 PM" }).save(),
-      new Categoria({ hora: "7:00 PM" }).save(),
-      new Categoria({ hora: "8:00 PM" }).save(),
+      new Horario({ hora: "10:00 AM" }).save(),
+      new Horario({ hora: "11:00 AM" }).save(),
+      new Horario({ hora: "12:00 AM" }).save(),
+      new Horario({ hora: "1:00 PM" }).save(),
+      new Horario({ hora: "2:00 PM" }).save(),
+      new Horario({ hora: "3:00 PM" }).save(),
+      new Horario({ hora: "4:00 PM" }).save(),
+      new Horario({ hora: "5:00 PM" }).save(),
+      new Horario({ hora: "6:00 PM" }).save(),
+      new Horario({ hora: "7:00 PM" }).save(),
+      new Horario({ hora: "8:00 PM" }).save(),
     ]);
 
     console.log(values);

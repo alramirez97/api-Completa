@@ -2,9 +2,9 @@ import Mongoose from "mongoose";
 
 const CommentSchema = Mongoose.Schema(
   {
-    publicacion: { type: Mongoose.Schema.Types.ObjectId },
+    detalle: { type: Mongoose.Schema.Types.ObjectId },
     email: { type: String },
-    comment: { type: String },
+    comentario: { type: String },
     fechaComentario: { type: Date, default: Date.now },
   },
   {
@@ -12,12 +12,12 @@ const CommentSchema = Mongoose.Schema(
   }
 );
 
-CommentSchema.virtual("publicacion")
-  .set(function (publicacion) {
-    this._publicacion = publicacion;
+CommentSchema.virtual("detalle")
+  .set(function (detalle) {
+    this._detalle = detalle;
   })
   .get(function () {
-    return this._publicacion;
+    return this._detalle;
   });
 
 export default model("Comentario", CommentSchema);

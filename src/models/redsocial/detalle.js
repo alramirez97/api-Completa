@@ -7,7 +7,9 @@ const detalleSchema = Mongoose.Schema({
         pelicula: [{
             ref: "Pelicula",
             type: Mongoose.Schema.Types.ObjectId
-        }]
+        }],
+        views: { type: Number, default: 0 },
+        likes: { type: Number, default: 0 },
     },
     {
         versionKey: false,

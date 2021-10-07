@@ -3,6 +3,7 @@ import Morgan from "morgan";
 import RutasComercio from "./src/routes/comercio/comercio.routes.js";
 import RutasUsuario from   "./src/routes/comercio/usuario.routes.js";
 import RutasAuth from   "./src/routes/comercio/autenticar.routes.js";
+import RutasPeliculas from './src/routes/cine/pelicula.routes.js'
 import cors from "cors";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
@@ -48,6 +49,7 @@ app.use((req, res, next) => {
 app.use(RutasComercio)
 app.use(RutasUsuario)
 app.use(RutasAuth)
+app.use(RutasPeliculas)
 app.set('puerto', process.env.PORT || 3000)
 
 
