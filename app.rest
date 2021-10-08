@@ -1,0 +1,24 @@
+GET http://localhost:3000/listboletos
+
+###
+POST http://localhost:3000/create
+Content-Type: application/json
+
+{
+"precio":"3.20",
+"numBoleto":1
+}
+
+
+###
+DELETE http://localhost:3000/eliminarboleto/615fad85fb983d0ca5744249\
+
+
+###
+PUT http://localhost:3000/editarboleto/615fb589a4cee4e323e8ea8f
+Content-Type: application/json
+
+{
+"precio":"3.00"
+}
+

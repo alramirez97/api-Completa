@@ -14,7 +14,12 @@ const boletoSchema = Mongoose.Schema({
             ref: "Horario",
             type: Mongoose.Schema.Types.ObjectId
         }],
+        sala: [{
+            ref: "Sala",
+            type: Mongoose.Schema.Types.ObjectId
+        }],
         precio: {type: String},
+        numBoleto:{type: Number}
 
     },
     {
