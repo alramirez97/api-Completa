@@ -40,8 +40,7 @@ verify.isSupervisor = async (req, res, next) => {
           return;
         }
       }
-  
-      return res.status(403).json({ message: "Necesitas rol de supervisor!" });
+      return res.status(403).json({ message: "Necesitas rol de supervisor para realizar esta accion!" });
     } catch (error) {
       console.log(error)
       return res.status(500).send({ message: error });
@@ -60,7 +59,7 @@ verify.isSupervisor = async (req, res, next) => {
         }
       }
   
-      return res.status(403).json({ message: "Necesita rol de administrador!" });
+      return res.status(403).json({ message: "Necesita rol de administrador para realizar esta accion!" });
     } catch (error) {
       console.log(error)
       return res.status(500).send({ message: error });

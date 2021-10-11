@@ -4,6 +4,7 @@ const detalleSchema = Mongoose.Schema({
         director: {type: String},
         actores: {type: String},
         sinopsis: {type: String},
+        imagen: {type: String},
         pelicula: [{
             ref: "Pelicula",
             type: Mongoose.Schema.Types.ObjectId
@@ -13,5 +14,6 @@ const detalleSchema = Mongoose.Schema({
     },
     {
         versionKey: false,
+        timestamps: true,
     }
 )
