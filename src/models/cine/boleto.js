@@ -5,11 +5,11 @@ const boletoSchema = Mongoose.Schema({
             ref:"Comercio",
             type: Mongoose.Schema.Types.ObjectId
         }],
+        numBoleto:{type: String},
         pelicula: [{
             ref: "Pelicula",
             type: Mongoose.Schema.Types.ObjectId
         }],
-        fecha: {type: Date, default: Date.now},
         horario: [{
             ref: "Horario",
             type: Mongoose.Schema.Types.ObjectId
@@ -19,10 +19,12 @@ const boletoSchema = Mongoose.Schema({
             type: Mongoose.Schema.Types.ObjectId
         }],
         precio: {type: String},
-        numBoleto:{type: Number}
+        descuento:{type: String},
+        total:{type: String}
 
     },
     {
+        timestamps: true,
         versionKey: false,
     }
 )

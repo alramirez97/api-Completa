@@ -99,27 +99,41 @@ controlador.update = async (req, res) => {
 controlador.delete = async (req, res) => {
 
 };
-
+/**
+ * LIKE en la publicacion
+ */
 controlador.like = async (req, res) => {
-    const publicacion = await Detalle.findOne({pelicula: req.params.id});
+    const publicacion = await Detalle.findOne({ pelicula: req.params.id });
     console.log(publicacion);
     if (publicacion) {
         publicacion.likes = publicacion.likes + 1;
         await publicacion.save();
         res.json({ likes: publicacion.likes });
     } else {
-        res.status(500).json({ error: "Internal Error" });
+        res.status(500).send({ 
+            "error": "No se puede dar like intente más tarde cuando termine su baneo",
+            "risaburlona": "XD"
+         });
     }
 };
-
+/**
+ * POST de un Comentario en la publicacion
+ */
 controlador.comment = async (req, res) => {
-    const publicacion = await Detalle.findOne({pelicula: req.params.id});
+    const publicacion = await Detalle.findOne({ pelicula: req.params.id });
     if (publicacion) {
         const newComment = new Comentario(req.body);
-        newComment.gravatar = md5(newComment.email);
         newComment.detalle = publicacion._id;
-        await newComment.save();
-        res.redirect("/publicacion/" + publicacion.uniqueId + "#" + newComment._id);
+        await newComment.save()
+        .then((entidad) => res.status(200).send({
+            "menssage": "Su comentario ha sido agregado!.",
+            "consulta": "Estamos comprobando que cumpla con nuestras normas de convivencia!.",
+            "Datos":entidad
+        }))
+        .catch((err) => res.status(400).send({
+            "error": "No se pudo publicar tu comentario te vamos a banear gil",
+            "datos": req.body
+        }));
     } else {
         res.redirect("/");
     }

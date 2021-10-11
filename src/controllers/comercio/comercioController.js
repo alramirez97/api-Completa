@@ -54,9 +54,7 @@ controlador.registrar= async (req,res)=>{
         newComercio.categoria = [cate._id];
 
     }
-    const createCategoria = await newComercio.save();
-    
-    res.status(200).json(createCategoria)
+    const createCategoria = await newComercio.save()
     .then((entidad)=>res.status(200).send(entidad))
         .catch((err)=>res.status(400).send(
             {
