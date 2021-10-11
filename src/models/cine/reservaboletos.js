@@ -1,12 +1,13 @@
 import Mongoose from 'mongoose';
 
 const reservaShema = Mongoose.Schema({
-     NVenta: {type:String, unique:true},
-     boleto: [{
-        ref: 'Boleto',
-        type: Mongoose.Schema.Types.ObjectId
-    }],
-     cantidad: {type:Number},
+     NVenta: {type:String},
+     pelicula: [{
+      ref: "Pelicula",
+      type: Mongoose.Schema.Types.ObjectId
+  }],
+     cantidad: {type:String},
+     precio: {type: String},
      total: {type:String},
      fechaReser: {type: Date, default: Date.now}
      

@@ -5,8 +5,7 @@ POST http://localhost:3000/create
 Content-Type: application/json
 
 {
-"precio":"3.20",
-"numBoleto":1
+"precio":"39.00"
 }
 
 
@@ -20,5 +19,24 @@ Content-Type: application/json
 
 {
 "precio":"3.00"
+}
+
+
+
+///Reserva 
+###
+GET http://localhost:3000/listReserva
+
+###
+POST http://localhost:3000/nuevaReserva
+Content-Type: application/json
+
+{
+//"NVenta":"1",
+"boleto":"1",
+"cantidad":1,
+"total":"$3.20"
+//"fecha":"02/02/2021"
+
 }
 
