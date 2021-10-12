@@ -11,7 +11,7 @@ import aController from "../../controllers/comercio/autenticar.js"
  *  parameters:
  *      token:
  *          in: header
- *          name: x-access-token
+ *          name: Authorization
  *          schema:
  *              type: string
  *              format: JWT
@@ -62,7 +62,7 @@ import aController from "../../controllers/comercio/autenticar.js"
  *      tags: [Usuarios]
  *      description: Obteniendo todos
  *      parameters:
- *        - name: x-access-token
+ *        - name: Authorization
  *          in: header
  *      produces: 
  *        - application/json
@@ -89,7 +89,7 @@ import aController from "../../controllers/comercio/autenticar.js"
  *      produces: 
  *             - application/json
  *      parameters:
- *             - name: x-access-token
+ *             - name: Authorization
  *               in: header
  *             - in: path
  *               name: id
@@ -190,7 +190,7 @@ ruta.put("/editarUsuario/:id",[
  *      produces: 
  *             - application/json
  *      parameters:
- *             - name: x-access-token
+ *             - name: Authorization
  *               in: header
  *             - in: path
  *               name: id

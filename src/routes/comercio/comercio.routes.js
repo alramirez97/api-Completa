@@ -11,7 +11,7 @@ const ruta = Router();
  *  parameters:
  *      token:
  *          in: header
- *          name: x-access-token
+ *          name: Authorization
  *          schema:
  *              type: string
  *              format: JWT

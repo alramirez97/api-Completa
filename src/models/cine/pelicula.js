@@ -8,6 +8,7 @@ const peliculaSchema = Mongoose.Schema({
         imagen: {type: String,},
         status:{type: String,},
         fechaEstreno:{type: Date},
+        precioBoleto: {type: String,}
     },
     {
         versionKey: false

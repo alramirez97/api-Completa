@@ -7,7 +7,6 @@ const reservaShema = Mongoose.Schema({
       type: Mongoose.Schema.Types.ObjectId
   }],
      cantidad: {type:String},
-     precio: {type: String},
      total: {type:String},
      fechaReser: {type: Date, default: Date.now}
      

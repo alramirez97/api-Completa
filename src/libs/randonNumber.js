@@ -7,9 +7,4 @@ export const randomNumber = () => {
       );
     }
     return randomNumber;
-<<<<<<< HEAD
   };
-=======
-  };
-  
->>>>>>> 3c8630eb5cf5a297ee7ac2220c1d395e134a8141

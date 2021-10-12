@@ -1,6 +1,7 @@
 import Detalle from '../../models/redsocial/detalle.js';
 import Pelicula from '../../models/cine/pelicula.js';
 import Comentario from '../../models/redsocial/comentarios.js';
+import VistaModel from "../../libs/vistaModel.js";
 
 const controlador = {};
 
@@ -99,6 +100,34 @@ controlador.update = async (req, res) => {
 controlador.delete = async (req, res) => {
 
 };
+/**
+ * VIEW en la publicacion
+ */
+controlador.vistas = async (req, res) => {s
+    let viewModel = { detalle: {}, comment: [] };
+    const detalle = await Detalle.findOne({
+        pelicula: { $regex: req.params.id },
+    });
+    if (detalle) {
+        detalle.views = detalle.views + 1;
+        viewModel.detalle = detalle;
+        detalle.save()
+        .then((entidad) => res.status(200).send(entidad))
+        .catch((err) => res.status(400).send(
+            {
+                "error": "No puede ver esta publicación",
+            }
+
+        ));
+        const comments = await Comentario.find({ detalle: detalle._id }).sort({
+        timestamp: 1,
+      });
+      viewModel.comment = comments;
+      viewModel = await VistaModel(viewModel);
+
+    } 
+  };
+
 /**
  * LIKE en la publicacion
  */

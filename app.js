@@ -4,8 +4,8 @@ import RutasComercio from "./src/routes/comercio/comercio.routes.js";
 import RutasUsuario from   "./src/routes/comercio/usuario.routes.js";
 import RutasBoleto from "./src/routes/cine/boleto.routes.js";
 import RutasAuth from   "./src/routes/comercio/autenticar.routes.js";
-import RutasPeliculas from './src/routes/cine/pelicula.routes.js'
-import RutasReservacion from './src/routes/cine/reservacion.routes.js'
+import RutasPeliculas from './src/routes/cine/pelicula.routes.js';
+import RutasReservacion from './src/routes/cine/reservacion.routes.js';
 import cors from "cors";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";

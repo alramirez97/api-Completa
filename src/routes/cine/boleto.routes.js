@@ -4,6 +4,7 @@ import bController from '../../controllers/cine/boletoController.js'
 const ruta = Router();
 
 ruta.get("/listboletos",bController.listado);
+ruta.post("/obtenerPrecio",bController.obtenerPelicula);
 ruta.get("/listboleto",bController.uno);
 ruta.post("/create/boleto",bController.create);
 ruta.put("/editarboleto/:id",bController.editar);
