@@ -14,6 +14,17 @@ controlador.listadou= async (req,res)=>{
         }
         ));
 }
+controlador.rol= async (req,res)=>{
+    console.log("Ejecutando el FIND")
+    await Role.find()
+    .then((entidad)=>res.status(200).send(entidad))
+    .catch((err)=>res.status(400).send(
+        {
+            "error":"No hay datos de roles",
+        }
+        
+        ));
+}
 // Mostrar un usuario
 controlador.uno= async (req,res)=>{
     console.log("Consulta individual")

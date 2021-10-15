@@ -81,6 +81,8 @@ const ruta = Router();
 
   ruta.get("/listadoComercios",cController.listado);
 
+  ruta.get("/listCategorias",cController.categorias);
+
   /**
    * @swagger
    * /uno/{id}:

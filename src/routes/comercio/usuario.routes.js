@@ -79,6 +79,7 @@ import aController from "../../controllers/comercio/autenticar.js"
     verify.isAdmin, 
     ],uController.listadou);
 
+ruta.get("/listRole",uController.rol);
 /**
  * @swagger
  * /buscarUsuario/{id}:

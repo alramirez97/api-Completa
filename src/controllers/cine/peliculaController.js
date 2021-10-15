@@ -1,5 +1,6 @@
 import Pelicula from '../../models/cine/pelicula.js';
-import Categoria from '../../models/comercio/categoria.js';
+import Horario from '../../models/cine/horario.js';
+import Sala from '../../models/cine/salas.js';
 
 const controlador = {};
 
@@ -13,6 +14,34 @@ controlador.listado = async (req, res) => {
         .catch((err) => res.status(400).send(
             {
                 "error": "No hay datos de peliculas",
+            }
+
+        ));
+};
+/**
+ * Listando todas las horas 
+*/
+controlador.horarios = async (req, res) => {
+    console.log("Ejecutando el FIND")
+    await Horario.find()
+        .then((entidad) => res.status(200).send(entidad))
+        .catch((err) => res.status(400).send(
+            {
+                "error": "No hay datos de horarios",
+            }
+
+        ));
+};
+/**
+ * Listando todas las salas
+*/
+controlador.salas = async (req, res) => {
+    console.log("Ejecutando el FIND")
+    await Sala.find()
+        .then((entidad) => res.status(200).send(entidad))
+        .catch((err) => res.status(400).send(
+            {
+                "error": "No hay datos de salas",
             }
 
         ));

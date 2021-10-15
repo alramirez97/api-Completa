@@ -17,6 +17,17 @@ controlador.listado= async (req,res)=>{
         
         ));
 }
+controlador.categorias= async (req,res)=>{
+    console.log("Ejecutando el FIND")
+    await Categoria.find()
+    .then((entidad)=>res.status(200).send(entidad))
+    .catch((err)=>res.status(400).send(
+        {
+            "error":"No hay datos de categorias",
+        }
+        
+        ));
+}
 
 controlador.uno= async (req,res)=>{
     console.log("Consulta individual")
