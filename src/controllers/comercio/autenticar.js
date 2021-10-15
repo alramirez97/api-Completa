@@ -29,7 +29,7 @@ controlador.registrar = async (req,res)=>{
 }
 
 controlador.login = async (req,res)=>{
-    const userFound = await Usuario.findOne({email: req.body.email}).populate("rol");
+    const userFound = await Usuario.findOne({email: req.body.email})
     if (!userFound) {
         return res.status(400).json({menssage: "Usuario not found"});
     }
@@ -41,11 +41,20 @@ controlador.login = async (req,res)=>{
             message: "Password invalida"
         })
     }
+    const role = await Role.findOne({_id: userFound.rol});
+    const rolUser = [role.name];
+    
+
+    console.log(rolUser)
 
     const token = jwt.sign({id: userFound._id}, llavesecreta, {
         expiresIn: '1d'
     });
-    res.json({token: token});
+
+    res.json({
+        token: token,
+        rol: rolUser,
+    });
 
 }
 
