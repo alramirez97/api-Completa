@@ -6,7 +6,7 @@ const controlador={}
 // Mostrar todos los usuarios
 controlador.listadou= async (req,res)=>{
     console.log("Ejecutando el FIND usuario")
-    await usuario.find()
+    await usuario.find().populate("rol")
     .then((entidad)=>res.status(200).send(entidad))
     .catch((err)=>res.status(400).send(
         {

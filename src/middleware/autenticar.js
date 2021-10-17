@@ -5,7 +5,7 @@ import Role from '../models/comercio/roles.js'
 const verify = {};
 
 verify.verfiyToken = async (req, res, next) => {
-  const token = req.headers["Authorization"];
+  const token = req.headers["authorization"];
 
   console.log(token);
   if (!token) {
