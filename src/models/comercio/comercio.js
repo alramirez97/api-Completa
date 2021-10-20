@@ -5,8 +5,8 @@ const comercioSchema=Mongoose.Schema({
 
     nombreComercio: { type: String, max: 25, min: 5, required: true },
     propietario: { type: String, max: 15, min: 5, required: true },
-    longitud: { type: String,},
-    latitud: { type: String,},
+    lng: { type: Number,},
+    lat: { type: Number,},
     telefono: { type: String, max: 15, min: 8, require: true },
     redes_sociales: { type: String, min: 8 },
     categoria: [{

@@ -2,6 +2,7 @@ import Detalle from '../../models/redsocial/detalle.js';
 import Pelicula from '../../models/cine/pelicula.js';
 import Comentario from '../../models/redsocial/comentarios.js';
 import VistaModel from "../../libs/vistaModel.js";
+import Comentario from '../../libs/comentario.js';
 
 const controlador = {};
 
@@ -39,7 +40,7 @@ controlador.listId = async (req, res) => {
  */
 controlador.create = async (req, res) => {
     console.log("Creando publicacion")
-    const { director, actores, sinopsis, imagen, pelicula } = req.body;
+    const { comercio, director, actores, sinopsis, imagen, pelicula } = req.body;
 
     const newPublicacion = new Detalle({
         director,
@@ -47,6 +48,17 @@ controlador.create = async (req, res) => {
         sinopsis,
         imagen
     });
+    if (comercio) {
+        const foundComercio = await Comentario.find({ nombreComercio: { $in: comercio } })
+        newPublicacion.comercio = foundComercio.map(nombreComercio => nombreComercio._id);
+    }
+    else {
+
+        res.status(400).send({
+            "menssage": "Necesita asignar un comercio al que pertenece la publicacion",
+            "datos": req.body
+        })
+    }
     if (pelicula) {
         const foundpelicula = await Pelicula.find({ titulo: { $in: pelicula } })
         newPublicacion.pelicula = foundpelicula.map(titulo => titulo._id);

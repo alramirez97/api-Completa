@@ -76,7 +76,6 @@ import aController from "../../controllers/comercio/autenticar.js"
 
  ruta.get("/listadoUsuarios",[
     verify.verfiyToken, 
-    verify.isAdmin, 
     ],uController.listadou);
 
 ruta.get("/listRole",uController.rol);
@@ -142,6 +141,12 @@ ruta.get("/buscarUsuario/:id",[
     chechRoles.checkDuplicateUsernameOrEmail],
     aController.registrar
   );
+  ruta.post(
+    "/createUser",
+    [chechRoles.checkRolesExisted,
+    chechRoles.checkDuplicateUsernameOrEmail],
+    aController.registrar
+  );
 
 /**
  * @swagger
@@ -175,7 +180,6 @@ ruta.get("/buscarUsuario/:id",[
 
 ruta.put("/editarUsuario/:id",[
     verify.verfiyToken, 
-    verify.isAdmin, 
     chechRoles.checkRolesExisted
     ],
     uController.actualizar);

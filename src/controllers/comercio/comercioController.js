@@ -43,12 +43,13 @@ controlador.uno= async (req,res)=>{
 }
 
 controlador.registrar= async (req,res)=>{
-    const {nombreComercio,propietario,coordenadas, telefono, redes_sociales, categoria, descripcion, logo} = req.body;
+    const {nombreComercio,propietario,lng, lat, telefono, redes_sociales, categoria, descripcion, logo} = req.body;
 
     const newComercio = new comercio({
         nombreComercio,
         propietario,
-        coordenadas,
+        lng,
+        lat,
         telefono,
         redes_sociales,
         descripcion,

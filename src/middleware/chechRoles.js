@@ -20,14 +20,44 @@ chechRole.checkDuplicateUsernameOrEmail = async (req, res, next) => {
 
 chechRole.checkRolesExisted = (req, res, next) => {
   if (req.body.rol) {
-    for (let i = 0; i < req.body.rol.length; i++) {
-      if (!Roles.includes(req.body.rol[i])) {
-        return res.status(400).json({
-          message: `El rol ${req.body.rol[i]} no existe pruebe con admin, supervisor o user`,
-        });
+    if (req.body.rol === 'a') {
+      req.body.rol == 'admin'
+      for (let i = 0; i < req.body.rol.length; i++) {
+        if (!Roles.includes(req.body.rol[i])) {
+          return res.status(400).json({
+            message: `El rol ${req.body.rol[i]} no existe pruebe con admin, supervisor o user`,
+          });
+        }
+      }
+    }
+    if (req.body.rol === 's') {
+      req.body.rol == 'supervisor'
+      for (let i = 0; i < req.body.rol.length; i++) {
+        if (!Roles.includes(req.body.rol[i])) {
+          return res.status(400).json({
+            message: `El rol ${req.body.rol[i]} no existe pruebe con admin, supervisor o user`,
+          });
+        }
+      }
+    }
+    if (req.body.rol === 'u') {
+      req.body.rol == 'user'
+      for (let i = 0; i < req.body.rol.length; i++) {
+        if (!Roles.includes(req.body.rol[i])) {
+          return res.status(400).json({
+            message: `El rol ${req.body.rol[i]} no existe pruebe con admin, supervisor o user`,
+          });
+        }
       }
     }
   }
+  /*for (let i = 0; i < req.body.rol.length; i++) {
+    if (!Roles.includes(req.body.rol[i])) {
+      return res.status(400).json({
+        message: `El rol ${req.body.rol[i]} no existe pruebe con admin, supervisor o user`,
+      });
+    }
+  }*/
 
   next();
 };
