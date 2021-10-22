@@ -6,6 +6,7 @@ import RutasBoleto from "./src/routes/cine/boleto.routes.js";
 import RutasAuth from   "./src/routes/comercio/autenticar.routes.js";
 import RutasPeliculas from './src/routes/cine/pelicula.routes.js';
 import RutasReservacion from './src/routes/cine/reservacion.routes.js';
+import Rutasdetalle from './src/routes/redsocial/publicacion.routes.js';
 import fetch from 'node-fetch'
 import cors from 'cors'
 import swaggerUI from "swagger-ui-express";
@@ -64,6 +65,7 @@ app.use(RutasAuth)
 app.use(RutasPeliculas)
 app.use(RutasBoleto)
 app.use(RutasReservacion)
+app.use(Rutasdetalle)
 //app.set('puerto', process.env.PORT || 3000)
 app.listen(process.env.PORT || 3000)
 

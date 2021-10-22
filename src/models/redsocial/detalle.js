@@ -21,3 +21,5 @@ const detalleSchema = Mongoose.Schema({
         timestamps: true,
     }
 )
+
+export default Mongoose.model("Detalle", detalleSchema)

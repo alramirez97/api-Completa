@@ -15,12 +15,6 @@ const CommentSchema = Mongoose.Schema(
   }
 );
 
-CommentSchema.virtual("detalle")
-  .set(function (detalle) {
-    this._detalle = detalle;
-  })
-  .get(function () {
-    return this._detalle;
-  });
 
-export default model("Comentario", CommentSchema);
+
+export default Mongoose.model("Comentario", CommentSchema);

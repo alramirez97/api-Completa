@@ -2,7 +2,7 @@ import Detalle from '../../models/redsocial/detalle.js';
 import Pelicula from '../../models/cine/pelicula.js';
 import Comentario from '../../models/redsocial/comentarios.js';
 import VistaModel from "../../libs/vistaModel.js";
-import Comentario from '../../libs/comentario.js';
+import Comercio from '../../models/comercio/comercio.js';
 
 const controlador = {};
 
@@ -49,7 +49,7 @@ controlador.create = async (req, res) => {
         imagen
     });
     if (comercio) {
-        const foundComercio = await Comentario.find({ nombreComercio: { $in: comercio } })
+        const foundComercio = await Comercio.find({ nombreComercio: { $in: comercio } })
         newPublicacion.comercio = foundComercio.map(nombreComercio => nombreComercio._id);
     }
     else {
