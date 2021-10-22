@@ -10,16 +10,13 @@ ruta.get("/listSalas",pController.salas);
 ruta.get("/oneMovie/:id",pController.uno);
 ruta.post("/searchMovie",pController.buscarTitulo);
 ruta.post("/newMovie",[
-    verify.verfiyToken, 
-    verify.isAdmin, 
+    verify.verfiyToken,  
     ], pController.create);
 ruta.put("/updateMovie/:id",[
     verify.verfiyToken, 
-    verify.isAdmin, 
     ], pController.actualizar);
 ruta.delete("/deleteMovie/:id",[
     verify.verfiyToken, 
-    verify.isAdmin, 
     ],pController.delete);
 
 export default ruta;

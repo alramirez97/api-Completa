@@ -135,8 +135,7 @@ const ruta = Router();
   
    ruta.post("/registrar", 
       [verify.verfiyToken, 
-       verify.isAdmin, 
-       checkCate.checkCategoriaExisted],
+       verify.isAdmin, ],
        cController.registrar);
   
 /**
@@ -193,8 +192,6 @@ const ruta = Router();
  */
   
    ruta.put("/editarComercio/:id",
-   [verify.verfiyToken,
-      verify.isAdmin,
-      checkCate.checkCategoriaExisted],
+   [verify.verfiyToken,],
       cController.actualizar)
 export default ruta 

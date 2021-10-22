@@ -3,18 +3,18 @@ import  Mongoose  from "mongoose";
 
 const comercioSchema=Mongoose.Schema({
 
-    nombreComercio: { type: String, max: 25, min: 5, required: true },
-    propietario: { type: String, max: 15, min: 5, required: true },
+    nombreComercio: { type: String, },
+    propietario: { type: String, },
     lng: { type: Number,},
     lat: { type: Number,},
-    telefono: { type: String, max: 15, min: 8, require: true },
-    redes_sociales: { type: String, min: 8 },
+    telefono: { type: String,},
+    redes_sociales: { type: String,},
     categoria: [{
         ref: "Categoria",
         type: Mongoose.Schema.Types.ObjectId
       }],
     descripcion: { type: String, min: 5, max: 100},
-    logo: { type: String, min: 5}
+    logo: { type: String, }
 })
 
 export default Mongoose.model('Comercio',comercioSchema)

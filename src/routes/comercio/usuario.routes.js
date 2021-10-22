@@ -104,7 +104,6 @@ ruta.get("/listRole",uController.rol);
 
 ruta.get("/buscarUsuario/:id",[
     verify.verfiyToken, 
-    verify.isAdmin, 
     ], uController.uno);
 
 /**
@@ -136,7 +135,6 @@ ruta.get("/buscarUsuario/:id",[
  ruta.post(
     "/signup",
     [verify.verfiyToken,
-    verify.isAdmin,
     chechRoles.checkRolesExisted,
     chechRoles.checkDuplicateUsernameOrEmail],
     aController.registrar

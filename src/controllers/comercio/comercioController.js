@@ -66,7 +66,7 @@ controlador.registrar= async (req,res)=>{
         newComercio.categoria = [cate._id];
 
     }
-    const createCategoria = await newComercio.save()
+    await newComercio.save()
     .then((entidad)=>res.status(200).send(entidad))
         .catch((err)=>res.status(400).send(
             {
@@ -81,8 +81,10 @@ controlador.registrar= async (req,res)=>{
 controlador.actualizar= async (req,res)=>{
     
     if (req.body.categoria) {
-        const foundCategoria = await Categoria.find({categoria: {$in: req.body.categoria}})
+        const foundCategoria = await Categoria.find({_id: {$in: req.body.categoria}})
         req.body.categoria = foundCategoria.map(cat=>cat._id);
+
+        console.log(req.body.categoria)
         await comercio.findByIdAndUpdate(req.params.id, req.body)
         .then((entidad)=>res.status(200).send(entidad))
         .catch((err)=>res.status(400).send(
