@@ -115,7 +115,7 @@ controlador.delete = async (req, res) => {
 /**
  * VIEW en la publicacion
  */
-controlador.vistas = async (req, res) => {s
+controlador.vistas = async (req, res) => {
     let viewModel = { detalle: {}, comment: [] };
     const detalle = await Detalle.findOne({
         pelicula: { $regex: req.params.id },
