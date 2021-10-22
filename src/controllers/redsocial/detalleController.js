@@ -118,7 +118,7 @@ controlador.delete = async (req, res) => {
 controlador.vistas = async (req, res) => {
     let viewModel = { detalle: {}, comment: [] };
     const detalle = await Detalle.findOne({
-        pelicula: { $regex: req.params.id },
+        _id: req.params.id 
     });
     if (detalle) {
         detalle.views = detalle.views + 1;
@@ -138,6 +138,14 @@ controlador.vistas = async (req, res) => {
       viewModel = await VistaModel(viewModel);
 
     } 
+    else{
+        res.status(400).send(
+            {
+                "error": "No ha seleccionado una publicación",
+            }
+
+        );
+    }
   };
 
 /**
