@@ -64,8 +64,8 @@ app.use(RutasAuth)
 app.use(RutasPeliculas)
 app.use(RutasBoleto)
 app.use(RutasReservacion)
-app.set('puerto', process.env.PORT || 3000)
-
+//app.set('puerto', process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000)
 
 
 const specs = swaggerJSDoc(options);
