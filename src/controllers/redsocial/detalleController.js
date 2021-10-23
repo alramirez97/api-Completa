@@ -152,7 +152,7 @@ controlador.vistas = async (req, res) => {
  * LIKE en la publicacion
  */
 controlador.like = async (req, res) => {
-    const publicacion = await Detalle.findOne({ pelicula: req.params.id });
+    const publicacion = await Detalle.findOne({ _id: req.params.id });
     console.log(publicacion);
     if (publicacion) {
         publicacion.likes = publicacion.likes + 1;
@@ -169,7 +169,7 @@ controlador.like = async (req, res) => {
  * POST de un Comentario en la publicacion
  */
 controlador.comment = async (req, res) => {
-    const publicacion = await Detalle.findOne({ pelicula: req.params.id });
+    const publicacion = await Detalle.findOne({ _id: req.params.id });
     if (publicacion) {
         const newComment = new Comentario(req.body);
         newComment.detalle = publicacion._id;
