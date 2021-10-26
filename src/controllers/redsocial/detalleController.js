@@ -41,6 +41,9 @@ controlador.listId = async (req, res) => {
 controlador.create = async (req, res) => {
     console.log("Creando publicacion")
     const { comercio, director, actores, sinopsis, imagen, pelicula } = req.body;
+    console.log("Comercio que viene",req.body.comercio)
+    console.log("Pelicula que viene",req.body.pelicula)
+    console.log(req.body)
 
     const newPublicacion = new Detalle({
         director,
